@@ -49,9 +49,9 @@ def home():
     return response
 
 def get_value_with_fallback(key):
-    if request.method is 'GET':
+    if request.args.get(key):
         return request.args.get(key)
-    elif request.method is 'POST':
+    elif request.form.get(key):
         return request.form.get(key)
     if request.cookies.get(key):
         return request.cookies.get(key)
